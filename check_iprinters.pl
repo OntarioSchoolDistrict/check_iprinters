@@ -17,10 +17,11 @@ die "\nLooking for nagios utils.pm at $nagios_plugins_utils"
 use lib "/usr/lib/nagios/plugins";       #use just the path here
 use utils qw(%ERRORS $TIMEOUT);
 
-my ( $opt_h, $opt_I, $opt_Q, $opt_v, $opt_P, $opt_V );
+my ( $opt_h, $opt_I, $opt_Q, $opt_v, $opt_P, $opt_F, $opt_V );
 my ( $printer_state, $accepting_jobs, $jobs_scheduled );
 my $i = 0;                               #iteration holder
 $opt_P = '631';
+$opt_F = '$PlaceHolder';
 
 alarm($TIMEOUT);
 
@@ -28,7 +29,7 @@ sub print_version {
     print "File:     check_iprinters.pl\n";
     print "Author:   dbenjamin\n";
     print "Created:  Aug 4, 2015\n";
-    print "Release:  0.0.1\n";
+    print "Release:  0.0.3\n";
     print "Tested against Novell iPrint Server 6.7.0.20150629-0.6.6, ";
     print "running on SLES 11, SP3 with OES 11, SP2.\n";
     exit $ERRORS{'UNKNOWN'};
@@ -36,7 +37,7 @@ sub print_version {
 
 sub print_exit {
     print
-"Usage: $0 -I <host address> -Q <queue name> [-P <port> default=631] [-v enable verbose] [--version]\n\n";
+"Usage: $0 -I <host address> -Q <queue name> [-P <port> default=631] [-F <regular expression>] [-v enable verbose] [--version]\n\n";
     exit $ERRORS{'UNKNOWN'};
 }
 
@@ -53,6 +54,7 @@ GetOptions(
     "I=s"     => \$opt_I,
     "Q=s"     => \$opt_Q,
     "P:s"     => \$opt_P,
+    "F=s"     => \$opt_F,
     "v"       => \$opt_v,
 ) or print_exit;
 
@@ -87,7 +89,7 @@ foreach $i ( 2 .. 4 ) {
     if ( $i == 3 ) { $accepting_jobs = $td[1]->as_text; }
     if ( $i == 4 ) { $jobs_scheduled = $td[1]->as_text; }
 }
-if ( ( $printer_state =~ /error/i ) & ( $printer_state =~ /empty/i ) ) {
+if ( ( $printer_state =~ /error/i ) & ( $printer_state =~ /$opt_F/i ) ) {
     if   ($opt_v) { print_verbose }
     else          { print "$printer_state\n\n"; }
     exit $ERRORS{'WARNING'};
