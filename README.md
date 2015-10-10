@@ -29,10 +29,10 @@ Usage: check_iprinters.pl -I <host address> -Q <queue name> [-P <port> default=6
 You can integrate with Icinga2 following these instructions.
 
 1. Download the check_ipp.pl script.
-1. Find the CustomPluginDir path in /etc/icinga2/constants.conf or where your distro may have placed the config file.
-1. Place the check_ipp.pl script in the CustomPluginDir directory and make the file executable.
+1. Find the __CustomPluginDir__ path in */etc/icinga2/constants.conf* or where your distro may have placed the config file.
+1. Place the *check_ipp.pl* script in the __CustomPluginDir__ directory and make the file executable.
 1. Define the service.
-   * I created a file in /etc/icinga2.conf/ named iprinters.conf containing:
+   * I created a file in */etc/icinga2.conf/* named *iprinters.conf* containing:
    ```C
    object CheckCommand "iprinters" {
       import "plugin-check-command"
