@@ -13,7 +13,7 @@ Tested against Novell iPrint Server 6.7.0.20150629-0.6.6, running on SLES 11, SP
 
 ***
 
-Usage: check_iprinters.pl -I <host address> -Q <queue name> [-P <port> default=631] [-v enable verbose] [--version]
+Usage: check_iprinters.pl -I <host address> -Q <queue name> [-P <port> default=631] [-F <filter regex> [-v enable verbose] [--version]
 
 ## Required
 * -I  Host IP address.
@@ -21,7 +21,7 @@ Usage: check_iprinters.pl -I <host address> -Q <queue name> [-P <port> default=6
 
 ## Options
 * -P  Port to use for testing, the default is 631.
-* -F  Filter in regular expression format.
+* -F  Filter in regular expression format.  Any regular expression that matches will lower an Error to a Warning status.  This keeps emails from going out in our system when local staff can add paper.  We currently filter for printers in an Error state and shutdown or empty:  "(empty)|(shut down)"  This filter is NOT case sensitive.
 * -v  Enable verbose output for testing, do not use this in your monitoring software.
 * --version   Output some version information, do not use this in your monitoring software.
 
