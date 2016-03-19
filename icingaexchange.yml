@@ -5,25 +5,19 @@ url: >
 tags: null
 vendor: novell
 target: printer
-type: null
-license: >
-  GNU Library or "Lesser" General Public
-  License version 3.0
+type: Plugin
+license: "GNU Library or "Lesser" General Public License version 3.0"
 releases:
   - 
-    name: 0.0.1
-    description: >
-      Tested against Novell iPrint Server
-      6.7.0.20150629-0.6.6, running on SLES
-      11, SP3 with OES 11, SP2.
+    name: 0.0.3
+    description: "Tested against Novell iPrint Server 6.7.0.20150629-0.6.6, running on SLES 11, SP3 with OES 11, SP2."
     files:
       - 
-        name: README
-        checksum: 56B751CF9014F92677DEAF9322D71EE7
-        url: file:///README
-        description: ""
+        name: README.md
+        checksum: 0b8177cbd488e271e64e66e3aa77c15f
+        url: file:///README.md
       - 
         name: check_iprinters.pl
-        checksum: 4E6E684CA43CD7750C5AA4B6AB11397A
+        checksum: 7c0736c3266324e4d417c6232d5631f4
         url: file:///check_iprinters.pl
-        description: 0.0.1
+        description: 0.0.3
