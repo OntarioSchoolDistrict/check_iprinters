@@ -5,7 +5,7 @@ tags: null
 vendor: novell
 target: printer
 type: Plugin
-license: "GNU Library or "Lesser" General Public License version 3.0"
+license: "GNU Library or \"Lesser\" General Public License version 3.0"
 releases:
   - 
     name: 0.0.3
