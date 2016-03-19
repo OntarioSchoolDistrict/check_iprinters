@@ -14,9 +14,10 @@ releases:
       - 
         name: README.md
         checksum: 0b8177cbd488e271e64e66e3aa77c15f
-        url: file:///README.md
+        url: "file:///README.md"
+        description: 0.0.3
       - 
         name: check_iprinters.pl
         checksum: 7c0736c3266324e4d417c6232d5631f4
-        url: file:///check_iprinters.pl
+        url: "file:///check_iprinters.pl"
         description: 0.0.3
