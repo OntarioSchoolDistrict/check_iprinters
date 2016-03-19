@@ -1,7 +1,6 @@
 name: check_iprinters.pl
-description: Test Novel iPrinter queues.
-url: >
-  https://exchange.icinga.org/dbenjamin/check_iprinters.pl
+description: "file:///README.md"
+url: "https://github.com/dwbenjamin/check_iprinters"
 tags: null
 vendor: novell
 target: printer
